@@ -18,7 +18,8 @@ class Solution1:
 		return s[self.left:self.left+self.maxLength-1]
 
 	def find_longest_palindrome_from(self, s, left, right):
-		while (left >= 0 and right < len(s) and s[left] = s[right]):
+		while (left >= 0 and right < len(s) and s[left] == s[right]): 
+		# 这里很神奇， 如果写错 while (s[left] == s[right] and left >= 0 and right < len(s))，会出现out of string的错误，所以要先对指针进行下检查
 			left -= 1
 			right += 1
 		if self.maxLength < right - left + 1:
