@@ -93,8 +93,10 @@ class Solution3:
                 start = mid
             if nums[mid] < target:
                 start = mid + 1
+                # start = mid
             if nums[mid] > target:
                 end = mid - 1
+                # end = mid
         
         # Since we need to return the last element of array        
         if nums[end] == target:
