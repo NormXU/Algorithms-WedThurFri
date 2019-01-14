@@ -41,7 +41,7 @@ class Solution(object):
                 left -= 1
                 continue
 
-    		if abs(A[right] - target) <= abs(A[left]-target):
+    		if abs(A[right] - target) < abs(A[left]-target):
     			result.append(A[right])
     			right += 1
     			continue
