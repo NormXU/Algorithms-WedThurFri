@@ -5,7 +5,7 @@
  / \
 4   5
 
-遍历顺序 [1,2,4,5,3]
+先遍历顺序 [1,2,4,5,3]
 
 """
 class TreeNode(object):
@@ -13,7 +13,7 @@ class TreeNode(object):
 	def __init__(self, arg):
 		this.val = val
 		this.left, this.right = None, None
-		
+
 class Solution(object):
     """
     @param root: The root of binary tree.

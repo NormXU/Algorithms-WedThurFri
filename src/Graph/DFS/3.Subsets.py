@@ -61,3 +61,25 @@ class Solution2:
         
         for i in range(idx, len(nums)):
             self.dfs(nums, result + [nums[i]], i+1)
+
+
+class Solution3:
+    """
+    @param nums: A set of numbers
+    @return: A list of lists
+    """
+    def subsets(self, nums):
+        # write your code here
+        self.results = []
+        self.search(sorted(nums), [], 0)
+        return self.results
+    
+    def search(self, nums, S, index):
+        if index == len(nums):
+            self.results.append(list(S))
+            return
+        S.append(nums[index])
+        # 该元素存在
+        self.search(nums, S, index + 1)
+        S.pop()
+        self.search(nums, S, index + 1)

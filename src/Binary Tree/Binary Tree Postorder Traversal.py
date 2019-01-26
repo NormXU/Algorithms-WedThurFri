@@ -5,7 +5,7 @@
  / \
 4   5
 
-遍历顺序 [4,5,2,3,1]
+后遍历顺序 [4,5,2,3,1]
 
 Given a binary tree, return the postorder traversal of its nodes' values.
 
@@ -17,7 +17,7 @@ Given binary tree {1,#,2,3},
      2
     /
    3
- 
+
 
 return [3,2,1].
 """
@@ -38,4 +38,3 @@ class Solution(object):
 		right_posteror = self.postorderTraversal(root.right)
 
 		return left_posterior + right_posteror + [root.val]
-
