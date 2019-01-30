@@ -32,3 +32,19 @@ class Solution(object):
 			if node.left:
 				stack.append(node.left)
 		return Preorder
+
+
+class Solution2:
+    """
+    @param root: A Tree
+    @return: Preorder in ArrayList which contains node values.
+    """
+    def preorderTraversal(self, root):
+        # write your code here
+        if root is None:
+            return []
+            
+        left = self.preorderTraversal(root.left)
+        right = self.preorderTraversal(root.right)
+        
+        return [root.val] + left + right
