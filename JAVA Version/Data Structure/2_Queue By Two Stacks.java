@@ -28,7 +28,6 @@ public class Solution {
 
   public void offer(int element) {
     in.push(element);
-
   }
 
   public Integer peek() {
@@ -36,7 +35,7 @@ public class Solution {
     if(out.isEmpty()){
       return null;
     }
-    return out.peek();
+    return out.peek(); // peek() which enables you to see what the top element on the Stack is, without popping off the element
   }
 
   public int size() {
