@@ -1,64 +1,71 @@
-class MinStack{
-  public MinStack(){
-    Deque<Integer> stack = new LinkedList<>();
-    Deque<Integer> miniStack = new LinkedList<>();
 
+null  <- 1  <-  8  <-  9  -> null
+                      pre
+                             cur
+                            next
+ListNode reverse(ListNode head){
+  ListNode pre  = null;
+  ListNode cur  = head;
+  while(cur != null){
+    ListNode tmp = cur.next;
+    cur.next     = pre;
+    pre          = cur;
+    cur          = tmp
   }
+  return pre;
 
-  public void push(int value){
-    stack.offerFirst(value);
-    if (miniStack.isEmpty() || miniStack.peek() > value) {
-      miniStack.offerFirst(value);
-    }
-
-  }
-  public Integer pop(){
-    if (stack.isEmpty()) {
-      return null;
-    }
-    int t = stack.pollFirst();
-    if (t == miniStack.peek()) {
-      miniStack.pollFirst();
-    }
-    return t;
-
-  }
-  public Integer getMin(){
-    if (miniStack.isEmpty()) {
-      return null;
-    }
-    return miniStack.peek();
-  }
 }
 
-================================================================================
-[ 8 2 9 3
-[
-[ 1
-int tmp = 1
+Queue<Integer> dq = new LinkedList<>();
 
-public Deque<Integer> sort(Deque<Integer> s1, Deque<Integer> s2, Deque<Integer> s3){
-  if (s1.isEmpty()) {
-    return s1;
+        5
+
+      /    \
+
+    3        8
+
+  /   \        \
+
+1      4        11
+
+中左右
+
+
+void preOrder(ListNode root){
+  if (root == null) return;
+  print(root.value);
+  preOrder(root.left);
+  preOrder(root.right);
+}
+
+ListNode x = new ListNode(0);
+int y = 10
+return y
+
+10
+
+
+
+
+
+de                print
+5
+3 8                  5
+8                    5 3
+1 4 8                5 3
+4 8                  5 3 1
+  8                  5 3 1 4
+  11                 5 3 1 4 8
+                     5 3 1 4 8 11
+deque pq;
+pq.append(root)
+while(!pq.isEmpty()){
+  TreeNode cur = pq.popleft();
+  print(cur.value)
+  if (cur.right != null){
+    pq.appendleft(cur.right)
   }
-  int length = s1.size();
-  int globalMin = Integer.max;
-  while(!s1.isEmpty){
-    int tmp = s1.pollFirst();
-    if (tmp < globalMin) {
-      globalMin = tmp;
-    }
-    s2.offerFirst(tmp);
+  if (cur.left != null){
+    pq.appendleft(cur.left)
   }
-  s3.offerFirst(globalMin);
-  while(!s2.isEmpty()){
-    int tmp = s2.pollFirst();
-    if (tmp > s3.peek()) {
-      
-    }
-  }
-
-
-
-
 }
