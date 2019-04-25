@@ -9,8 +9,9 @@ public class Solution {
       return input;
     }
     char[] array = input.toCharArray();
+    int end = 0;
     for (int j = 0;j < array.length ;j++ ) {
-      if (array[j] == 0 && (j == 0 || array[j-1] = ' ')) {
+      if (array[j] == ' ' && (j == 0 || array[j-1] = ' ')) {
         continue;
       }
       array[end] = array[j];

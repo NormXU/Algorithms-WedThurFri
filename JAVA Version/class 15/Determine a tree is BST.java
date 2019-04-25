@@ -17,6 +17,6 @@ public boolean isBST(TreeNode root, int l, int r){
 
                     10 (min=-inf, max=inf)
               /                       \
-    5(min=-inf, max=5)                  15(min=10, max=+inf)
+    5(min=-inf, max=10)                  15(min=10, max=+inf)
      /                 \                            /\
 2(min=-inf, max=5) 7(min=5, max=10)               12     20
