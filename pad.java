@@ -11,3 +11,9 @@ DummyHead -> ListNode(1) -> ListNode(1) ->
 <4 ,ListNode(4)>
 
 k log k + (n-k) log k   == totalLengthOfList * log # List
+
+1 3 4 5
+ 5 1 3 4
+global_flag 3
+cnt         2
+cnt_total   2
