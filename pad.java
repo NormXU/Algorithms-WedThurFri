@@ -17,3 +17,6 @@ k log k + (n-k) log k   == totalLengthOfList * log # List
 global_flag 3
 cnt         2
 cnt_total   2
+
+
+serialization
