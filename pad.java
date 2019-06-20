@@ -1,22 +1,25 @@
-1 -> 4 -> 5
-1 -> 3 -> 4
-2 -> 6
+Given a string with no duplicate characters, return a list with all permutations of the characters.
+
+Assume that input string is not null.
+
+**Examples**
+
+Set = “abc”, all permutations are [“abc”, “acb”, “bac”, “bca”, “cab”, “cba”]
+
+Set = "", all permutations are [""]
 
 
 
-DummyHead -> ListNode(1) -> ListNode(1) ->
-
-<2 ,ListNode(2)>
-<3 ,ListNode(3)>
-<4 ,ListNode(4)>
-
-k log k + (n-k) log k   == totalLengthOfList * log # List
-
-1 3 4 5
- 5 1 3 4
-global_flag 3
-cnt         2
-cnt_total   2
 
 
-serialization
+
+
+Given a rope with positive integer-length *n*, how to cut the rope into *m* integer-length parts with length *p*[0], *p*[1], ...,*p*[*m*-1], in order to get the maximal product of *p*[0] **p*[1]* ... **p*[*m*-1]? *m* **is determined by you** and must be greater than 0 **(at least one cut must be made**). Return the max product you can have.
+
+**Assumptions**
+
+- n >= 2
+
+**Examples**
+
+- n = 12, the max product is 3 * 3 * 3 * 3 = 81(cut the rope into 4 pieces with length of each is 3).

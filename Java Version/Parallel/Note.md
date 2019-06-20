@@ -187,3 +187,126 @@ synchronized on static method      == synchronized(Counter.class)
 要指定对哪一个类进行加锁
 ```
 
+
+
+
+
+# Concurrency II
+
+### HashMap Synchronization
+
+在什么情况下会发生data race呢？
+
+当我们对HashMap进行put，同时又对HashMap进行get的时候，会发生Data Race
+
+put VS get, put V.S. put  --> data race free --> use lock(synchronized keyword) ---> whose lock
+
+```java
+public class MyHashMap<K, V>{
+    static class Node<K, V>{
+        final K key;
+        V value;
+        Node<K, V> next;
+        Node(K key, V value){
+            this.key = key;
+            this.value = value;
+        }
+        
+        public K getKey(){
+            return key;
+        }
+        
+        public V getValue(){
+            return value;
+        }
+        
+        public void setValue(V value){
+            this.value = value;
+        }
+    }
+    
+    public static final int DEFAULT_CAPACITY = 16;
+    public static final int DEFAULT_LOAD_FACTOR = 0.75f;
+    
+    private Node<K, V>[] array;
+    private int size;
+    private float loadFactor;
+    
+    MyHashMap(){
+        this(DEFAULT_CAPACITY, DEFAULT_LOAD_FACTOR);
+    }
+    MyHashMap(int cap, float loadFactor){
+        if(cap <= 0){
+            throw new IllegalArgumentException("cap cannot <= 0");
+        }
+        this.loadFactor = loadFactor;
+        size = 0;
+        array = (Node<K, V>[]) (new Node[cap]);
+    }
+    
+    public int size(){
+        return size;
+    }
+    public boolean isEmpty(){
+        return size == 0;
+    }
+    public void clear(){
+        Arrays.fill(array, null);
+        size = 0;
+    }
+    private int hash(){
+        if(key == null){
+            return 0;
+        }
+        int code = key.hashCode();
+        return code & 0x7FFFFFFF;
+    }
+    
+    private int getIndex(int hash){
+        return hash % array.length;
+    }
+    
+    public boolean equalsKey(K k1, K k2){
+        return k1 == k2 || (k1 != null && k1.equals(k2));
+    }
+    public V put(K key, V value){
+        int index = getIndex(hash(key));
+        Node<K, V> cur = array[index];
+        while(cur != null){
+            if(equalsKey(cur.key, key)){
+                V result = cur.value;
+                cur.value = value;
+                return result;
+            }
+            cur = cur.next;
+        }
+        Node<K, V> newHead = new Node<>(key, value);
+        newHead.next = array[index];
+        array[index] = newHead;
+        size++;
+        if(needRehashing()){
+            rehashing();
+        }
+        return null;
+        
+    }
+    private boolean needRehashing(){
+        float ratio = (size + 0.0f) / array.length;
+        return ratio >= loadFactor;
+    }
+    rehashing();
+    get();
+    containskey();
+    
+    public boolean equalsValue(V v1, V v2){
+        return v1 == v2 || (v1 != null && v1.equalsl(v2));
+    }
+    
+    public boolean containsValue(V value){
+        
+    }
+    remove();
+    
+}
+```
+

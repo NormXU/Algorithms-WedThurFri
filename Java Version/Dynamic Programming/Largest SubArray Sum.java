@@ -2,7 +2,7 @@
 
 {-2, -1, -3}, the largest subarray sum is -1
 
-a  2  -1  4  -7  1
+a  2  -5  4  -7  1
 m  2  1   5  -3  1
 g  2
 
