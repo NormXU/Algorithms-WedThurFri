@@ -23,3 +23,14 @@ Given a rope with positive integer-length *n*, how to cut the rope into *m* inte
 **Examples**
 
 - n = 12, the max product is 3 * 3 * 3 * 3 = 81(cut the rope into 4 pieces with length of each is 3).
+
+
+array[mid] < array[right] && target < array[mid]
+right -= 1
+array[mid] < array[right] && target > array[mid]
+left += 1
+
+array[mid] > array[right] && target < array[mid]
+right -= 1
+array[mid] > array[right] && target > array[mid]
+left += 1

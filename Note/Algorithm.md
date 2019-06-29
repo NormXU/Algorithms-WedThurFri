@@ -1702,7 +1702,7 @@ private void helper(char[] array, int index, List<String> result){
 
 
 
-Hash Table & String
+# Hash Table & String
 
 <Key,  Value> pairs, not allow duplicate keys
 
@@ -1724,7 +1724,13 @@ votes[name]++;
 
 .put(key, value)   - O(m)
 
+Implementation
 
+hash collesion
+
+​		chaining
+
+​		open address
 
 == ===== = = = = = = = == =  = = = =================================== =============== =============  === == =  = = = = = = = = = = = == = = = =  = == == = 
 
@@ -1797,6 +1803,104 @@ private Map<String, Integer> getFreqMap(){
 ```
 
 
+
+Question
+
+If there is only one missing number from 1 to n in an unsorted array. How to find it in O(n) time ?
+
+Solution 1
+
+Insert all numbers in the input array to a hash set
+
+For Each number from 1 to n, find whether it's in the hashtable
+
+Solution 2
+
+[3 1 4]
+
+1 + 2 + 3 + 4 - (3 + 1 + 4) = 2
+
+```java
+public int missing(int[] array){
+    if(array.length == 1){
+        return 1;
+    }
+    Map<Integer, Integer> map = new HashMap<>();
+    for(int i = 0; i < array.length; i++){
+        Integer value = map.get(array[i]);
+        if(value == null){
+            map.put(array[i], 1);
+        }else{
+            map.put(array[i], value + 1);
+        }
+    }
+    
+}
+```
+
+
+
+### Question 3
+
+Find the common numbers between two sorted arrats a[N] b[N]
+
+**Solution 1: **
+
+Step 1: Insert all numbers in a hashSet  -O(N) average and O(n^2) in worst cases。这是因为最糟糕的情况是所有的元素都发生了collision
+
+Step 2: 在已经搭建好的hashSet中寻找对应元素，那么最糟糕的情况就是O(M * N)
+
+**Solution 2:**
+
+谁小移动谁
+
+[2, 3, 4]
+
+​      i
+
+[1, 2, 3]
+
+​       j
+
+当所对应的指针的值相等的时候，将其中一个加入到list.add()中
+
+当所对应的指针的值一个比另一个小的时候，移动那个小的元素
+
+```java
+List<Integer> common(List<Integer> A, List<Integer>){
+    List<Integer> result = new ArrayList<>();
+    int i = 0;
+    int j = 0;
+    while(i < A.size() && j < B.size()){
+        if(A.get(i) == B.get(j)){
+            result.add(A.get(i));
+            i++;
+            j++;
+        }else if(A.get(i) < B.get(j)){
+            i++;
+        }else{
+            j++;
+        }
+    }
+    return result;
+}
+```
+
+Time O(m + n)
+
+
+
+# String I 
+
+常考问题:
+
+Char Removal
+
+De-duplication
+
+replace empty spaces
+
+substring
 
 
 

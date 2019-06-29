@@ -6,6 +6,11 @@ the Queen on the second row is at y index 3,
 the Queen on the third row is at y index 0 and
 the Queen on the fourth row is at y index 2.
 
+ X  Q  X  X
+ X  X  X  Q
+ Q  X  X  X
+ X  X  Q  X
+
 [2, 0, 3, 1] --> the Queen on the first row is at y index 2,
 the Queen on the second row is at y index 0,
 the Queen on the third row is at y index 3 and
@@ -33,7 +38,7 @@ public class Solution {
       }
     }
   }
-  
+
   private boolean valid(List<Integer> cur, int col){
       int row = cur.size();
       for (int i = 0;i < row ;i++ ) {
@@ -44,3 +49,8 @@ public class Solution {
       return true;
     }
 }
+
+X  Q  X  X
+X  X  X  Q
+Q  X  X  X
+X  X  Q  X

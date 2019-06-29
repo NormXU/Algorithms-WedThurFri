@@ -33,3 +33,12 @@ public class Solution {
   }
 
 }
+
+[0,i)    0
+[i,j)    1
+[j,end]  2
+
+ 0  0  0  1  1  2  2
+       i
+             j
+             k

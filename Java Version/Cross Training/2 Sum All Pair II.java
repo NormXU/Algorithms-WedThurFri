@@ -1,4 +1,5 @@
-Find all pairs of elements in a given array that sum to the pair the given target number. Return all the distinct pairs of values.
+Find all pairs of elements in a given array that
+sum to the pair the given target number. Return all the distinct pairs of values.
      0  1  2  3  4  5  6  7
 A = {2, 1, 3, 2, 4, 3, 4, 2}, target = 6, return [[2, 4], [3, 3]]
 
